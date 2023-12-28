@@ -4,7 +4,9 @@ import { whatsApp_stikey } from "../assets";
 const Menu = () => (
   <div className="  w-full menu fixed bg-white flex justify-around bottom-0 sm:hidden z-[1000] shadow ">
     <div className="w-[50%] flex justify-center border-l-purple-600 border-l-3 h-full ">
-      <button className=" w-full h-full py-4 border-l-[2px]">chat</button>
+      <button className=" w-full h-full py-4 border-l-[2px] flex flex-row-reverse justify-center items-center ">
+        chat
+      </button>
     </div>
     <div className="w-[50%] flex justify-center h-full ">
       <button className=" w-full h-full py-4 flex flex-row-reverse justify-center items-center">
