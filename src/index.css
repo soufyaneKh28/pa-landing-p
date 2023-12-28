@@ -138,11 +138,12 @@ textarea:focus {
 }
 
 .whatsapp {
-  right: 10px;
+  right: 5px;
   position: fixed;
-  top: 409px;
+  /* top: 409px; */
   width: 70px;
   z-index: 100;
+  bottom: 130px;
 }
 
 /* @keyframes fade-in {
