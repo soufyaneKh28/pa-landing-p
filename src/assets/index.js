@@ -14,7 +14,7 @@ import x from "./x-logo.png";
 import connect_icon from "./connect-icon.png";
 import kick_start_icon from "./kick-start-icon.png";
 import sustain_logo from "./sustain-logo.png";
-import aligner from "./aligner.svg";
+import aligner from "./aligner.png";
 import icon_instagram from "./Icon-instagram.svg";
 import icon_facebook from "./Icon-facebook.svg";
 import icon_whatsapp from "./Icon-whatsapp.svg";
