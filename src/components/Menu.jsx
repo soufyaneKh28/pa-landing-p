@@ -10,7 +10,7 @@ const Menu = () => (
     </div>
     <div className="w-[50%] flex justify-center h-full ">
       <button className=" w-full h-full py-4 flex flex-row-reverse justify-center items-center">
-        <img src={whatsApp_stikey} alt="" className=" w-10 mr-2" />
+        <img src={whatsApp_stikey} alt="" className=" w-8 mr-2" />
         whatsapp
       </button>
     </div>
