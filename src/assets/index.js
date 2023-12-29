@@ -6,7 +6,7 @@ import hero_img from "./hero-img.png";
 import instagram from "./instagram.svg";
 import make_it_clean from "./make_it_clean.png";
 import perfect_fit from "./perfect-fit.svg";
-import time_to_shine from "./time-to-shine.svg";
+import time_to_shine from "./time-to-shine.png";
 import wear_it_to from "./wear-it-to-win-it.png";
 import whatsApp_stikey from "./whatsapp-stikey.svg";
 import whatsApp_icon from "./whatsapp.svg";
