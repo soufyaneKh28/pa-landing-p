@@ -27,7 +27,7 @@ const Contact = () => {
     // Create a query string from the form data
     // const queryString = new URLSearchParams(formData).toString();
     // console.log(queryString);
-    const apiEndpoint = `https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&fullname=Jhon&phone=+971506668815&email=jhon_doe@example.com&message=I am interested in clear aligners&source=Google`;
+    const apiEndpoint = `https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&fullname=${formData.fullname}&phone=+971506668815&email=${formData.email}&message=${formData.message}&source=Google`;
 
     try {
       const response = await fetch(apiEndpoint, {
