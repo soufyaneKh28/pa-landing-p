@@ -1,4 +1,4 @@
-import { contact_img } from "../assets";
+import { contact_img, response } from "../assets";
 import { useEffect, useState } from "react";
 
 import styles from "../style";
@@ -22,23 +22,29 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
+
+    // Create a query string from the form data
+    const queryString = new URLSearchParams(formData).toString();
+    console.log(queryString);
+    const apiEndpoint = `https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&${queryString}&source=Google`;
 
     try {
-      const response = await fetch(
-        "https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&fullname=Jhon Doe&email=jhon_doe@example.com&message=I am interested in clear aligners&source=Google",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            // Add any other headers you need
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(apiEndpoint, {
+        method: "GET",
+        mode: "no-cors",
+        // Add any headers or other options as needed
+      });
 
       if (!response.ok) {
-        // Handle non-2xx responses
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        console.error(
+          "Response details:",
+          response.status,
+          response.statusText
+        );
+        const errorText = await response.text();
+        console.error("Error details:", errorText);
+        throw new Error("HTTP error");
       }
 
       // Handle the response here
@@ -84,7 +90,7 @@ const Contact = () => {
               <div className="flex flex-col sm:w-[50%] mt-3 sm:mr-2">
                 <label htmlFor="">البريد الالكتروني</label>
                 <input
-                  type="emal"
+                  type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
