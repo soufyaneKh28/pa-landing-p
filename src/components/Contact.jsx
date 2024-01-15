@@ -32,7 +32,7 @@ const Contact = () => {
     try {
       const response = await fetch(apiEndpoint, {
         method: "GET",
-        // mode: "no-cors",
+        mode: "no-cors",
         // Add any headers or other options as needed
       });
 
