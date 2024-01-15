@@ -36,18 +36,8 @@ const Contact = () => {
         // Add any headers or other options as needed
       });
 
-      if (!response.ok) {
-        console.log(response);
-        console.error(
-          "Response details:",
-          response.status,
-          response.statusText
-        );
-        const errorText = await response.text();
-        console.error("Error details:", errorText);
-        throw new Error("HTTP error");
-      }
-
+     
+      console.log(response);
       // Handle the response here
       const data = await response.json();
       console.log(data);
