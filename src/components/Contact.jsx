@@ -35,7 +35,7 @@ const Contact = () => {
         mode: "no-cors",
         // Add any headers or other options as needed
       });
-
+console.log(response);
       if (!response.ok) {
         console.error(
           "Response details:",
