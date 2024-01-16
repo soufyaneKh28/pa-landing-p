@@ -64,16 +64,17 @@ export function HeroForm() {
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    console.log(typeof phone);
+    console.log(phone);
     // Create a query string from the form data
     // const queryString = new URLSearchParams(formData).toString();
     // console.log(queryString);
@@ -163,7 +164,7 @@ export function HeroForm() {
           rows="10"
           placeholder="اكتب رسالتك"
           className="bg-primary h-[200px]"
-        ></textarea>
+        />
         <button
           className={`${styles.button} mx-auto mt-2 rounded-[20px] font-semibold w-fit shadow-md hover:bg-slate-400 transition px-[40px]`}
         >
