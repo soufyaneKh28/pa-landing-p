@@ -84,7 +84,7 @@ const Contact = () => {
                   defaultCountry="tr"
                   id="phone"
                   value={phone}
-                  onChange={(phone) => setPhone(phone)}
+                  onChange={(phone) => setPhone(phone.toString())}
                 />
               </div>
             </div>
