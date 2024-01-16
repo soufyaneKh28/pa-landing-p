@@ -59,8 +59,7 @@ export function HeroForm() {
   const [phone, setPhone] = useState("");
   // const phoneValidation = usePhoneValidation(phone);
   const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
+    fullname: "",
     message: "",
   });
 
@@ -71,58 +70,58 @@ export function HeroForm() {
     });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log(formData);
-  //   console.log(typeof phone);
-  //   // Create a query string from the form data
-  //   // const queryString = new URLSearchParams(formData).toString();
-  //   // console.log(queryString);
-  //   const apiEndpoint = `https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&fullname=${formData.fullname}&phone=${phone}&message=${formData.message}&source=Google`;
-
-  //   try {
-  //     const response = await fetch(apiEndpoint, {
-  //       method: "GET",
-  //       mode: "no-cors",
-  //       // Add any headers or other options as needed
-  //     });
-
-  //     console.log(response);
-  //     // Handle the response here
-  //     const data = await response.json();
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.error("Error:", error.message);
-  //   }
-  // };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Assuming your API endpoint is at 'https://example.com/send-message'
-    const apiUrl =
-      "https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&fullname=${formData.fullname}&phone=${phone}&message=${formData.message}&source=Google";
-
-    // Constructing the query string from form data
+    console.log(formData);
+    console.log(typeof phone);
+    // Create a query string from the form data
     // const queryString = new URLSearchParams(formData).toString();
+    // console.log(queryString);
+    const apiEndpoint = `https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&fullname=${formData.fullname}&phone=${phone}&message=${formData.message}&source=Google`;
 
-    // Making the GET request using fetch
-    fetch(`${apiUrl}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Response:", data);
-        // Handle the response as needed
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        // Handle errors
+    try {
+      const response = await fetch(apiEndpoint, {
+        method: "GET",
+        mode: "no-cors",
+        // Add any headers or other options as needed
       });
+
+      console.log(response);
+      // Handle the response here
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
   };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   // Assuming your API endpoint is at 'https://example.com/send-message'
+  //   const apiUrl =
+  //     "https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&fullname=${formData.fullname}&phone=${phone}&message=${formData.message}&source=Google";
+
+  //   // Constructing the query string from form data
+  //   // const queryString = new URLSearchParams(formData).toString();
+
+  //   // Making the GET request using fetch
+  //   fetch(`${apiUrl}`)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! Status: ${response.status}`);
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       console.log("Response:", data);
+  //       // Handle the response as needed
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //       // Handle errors
+  //     });
+  // };
 
   return (
     <div className=" flex justify-center">
