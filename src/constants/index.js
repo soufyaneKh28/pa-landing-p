@@ -84,12 +84,12 @@ export const how_cards = [
 
 export const footer_icons = [
   {
-    id: "icon_facebook",
+    id: "icon_twitter",
     img: icon_twitter,
     link: "#",
   },
   {
-    id: "icon_facebook",
+    id: "icon_instagram",
     img: icon_instagram,
     link: "#",
   },
@@ -99,7 +99,7 @@ export const footer_icons = [
     link: "#",
   },
   {
-    id: "icon_facebook",
+    id: "icon_whatsapp",
     img: icon_whatsapp,
     link: "#",
   },

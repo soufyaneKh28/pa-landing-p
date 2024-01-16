@@ -1,13 +1,13 @@
 import { contact_img, response } from "../assets";
 import { useEffect, useState } from "react";
-
+import { PhoneInput } from "react-international-phone";
 import styles from "../style";
 const Contact = () => {
+  const [phone, setPhone] = useState("");
   const [formData, setFormData] = useState({
     // Initialize your form data here
     // For example:
     fullname: "",
-    email: "",
     message: "",
     // Add other form fields as needed
   });
@@ -27,7 +27,7 @@ const Contact = () => {
     // Create a query string from the form data
     // const queryString = new URLSearchParams(formData).toString();
     // console.log(queryString);
-    const apiEndpoint = `https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&fullname=${formData.fullname}&phone=+971506668815&email=${formData.email}&message=${formData.message}&source=Google`;
+    const apiEndpoint = `https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&fullname=${formData.fullname}&phone=+971506668815&email=${phone}&message=${formData.message}&source=Google`;
 
     try {
       const response = await fetch(apiEndpoint, {
@@ -36,7 +36,6 @@ const Contact = () => {
         // Add any headers or other options as needed
       });
 
-     
       console.log(response);
       // Handle the response here
       const data = await response.json();
@@ -69,8 +68,9 @@ const Contact = () => {
           >
             <div className="flex flex-col w-full sm:flex-row mt-3 ">
               <div className="flex flex-col sm:w-[50%] mt-3 sm:ml-2">
-                <label htmlFor="">الاسم</label>
+                <label htmlFor="fullname">الاسم الكامل</label>
                 <input
+                  id="fullname"
                   type="text"
                   name="fullname"
                   value={formData.fullname}
@@ -78,14 +78,13 @@ const Contact = () => {
                   placeholder="اكتب اسمك"
                 />
               </div>
-              <div className="flex flex-col sm:w-[50%] mt-3 sm:mr-2">
-                <label htmlFor="">البريد الالكتروني</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="اكتب اسمك"
+              <div className="flex flex-col sm:w-[50%] mt-3 sm:mr-2 footer-form-cont">
+                <label htmlFor="phone">الهاتف</label>
+                <PhoneInput
+                  defaultCountry="tr"
+                  id="phone"
+                  value={phone}
+                  onChange={(phone) => setPhone(phone)}
                 />
               </div>
             </div>
