@@ -189,6 +189,7 @@ textarea:focus {
 .css-bthbmc-MuiPaper-root-MuiAlert-root {
   animation: slide-down 0.3s;
   top: 100px;
+  
   background-color: #fff !important;
   color: #ea435d !important;
   font-family: "Changa", sans-serif !important;

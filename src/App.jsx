@@ -57,6 +57,7 @@ const App = () => {
             style={{
               position: "fixed",
               zIndex: "100",
+              top: 100,
             }}
             className="alert"
           >
