@@ -6,7 +6,10 @@ import "aos/dist/aos.css";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import axios from "axios";
-function Hero() {
+import * as React from "react";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
+function Hero({ handleOpen, handleAlertClose, handleAlertOpen }) {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   });
@@ -48,14 +51,18 @@ function Hero() {
               إبدأ خطتك
             </button> */}
           </div>
-          <HeroForm />
+          <HeroForm
+            handleOpen={handleOpen}
+            handleAlertClose={handleAlertClose}
+            handleAlertOpen={handleAlertOpen}
+          />
         </div>
       </section>
     </>
   );
 }
 
-export function HeroForm() {
+export function HeroForm({ handleOpen, handleAlertClose, handleAlertOpen }) {
   const [phone, setPhone] = useState("");
   // const phoneValidation = usePhoneValidation(phone);
   const [formData, setFormData] = useState({
@@ -70,6 +77,13 @@ export function HeroForm() {
       [name]: value,
     });
   };
+  function inputClear() {
+    setPhone("");
+    setFormData({
+      fullname: "",
+      message: "",
+    });
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -94,36 +108,17 @@ export function HeroForm() {
     } catch (error) {
       console.error("Error:", error.message);
     }
+    inputClear();
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   // Assuming your API endpoint is at 'https://example.com/send-message'
-  //   const apiUrl =
-  //     "https://www.zohoapis.com/crm/v2/functions/addleadwebhook/actions/execute?auth_type=apikey&zapikey=1003.c059758048a4d6909a95a78c580b20a7.c249d0c1b8f1608255df0fc04d47b494&fullname=${formData.fullname}&phone=${phone}&message=${formData.message}&source=Google";
-
-  //   // Constructing the query string from form data
-  //   // const queryString = new URLSearchParams(formData).toString();
-
-  //   // Making the GET request using fetch
-  //   fetch(`${apiUrl}`)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! Status: ${response.status}`);
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       console.log("Response:", data);
-  //       // Handle the response as needed
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error:", error);
-  //       // Handle errors
-  //     });
-  // };
-
+  function formChecking() {
+    if (formData.fullname && formData.message && phone) {
+      handleOpen();
+      handleAlertClose();
+    } else {
+      handleAlertOpen();
+    }
+  }
   return (
     <div className=" flex justify-center">
       <form
@@ -166,6 +161,7 @@ export function HeroForm() {
           className="bg-primary h-[200px]"
         />
         <button
+          onClick={formChecking}
           className={`${styles.button} mx-auto mt-2 rounded-[20px] font-semibold w-fit shadow-md hover:bg-slate-400 transition px-[40px]`}
         >
           ارسل

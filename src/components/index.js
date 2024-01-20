@@ -7,6 +7,7 @@ import CTA from "./CTA";
 import Contact from "./Contact";
 import ContactBtn from "./ContactBtn";
 import Menu from "./Menu";
+import BasicModal from "./BasicModal";
 export {
   Header,
   Hero,
@@ -17,4 +18,5 @@ export {
   Contact,
   ContactBtn,
   Menu,
+  BasicModal,
 };

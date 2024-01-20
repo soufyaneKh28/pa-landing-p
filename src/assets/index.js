@@ -22,6 +22,7 @@ import icon_twitter from "./Icon-twitter.svg";
 import icon_phone from "./Icon-phone.svg";
 import icon_email from "./Icon-email.svg";
 import video from "./video.mp4";
+import chat from "./chat.png";
 import response from "./response.json";
 export {
   facebook,
@@ -49,4 +50,5 @@ export {
   logo_footer,
   video,
   response,
+  chat,
 };
