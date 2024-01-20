@@ -37,6 +37,12 @@ const Contact = ({ handleAlertClose, handleAlertOpen, handleOpen }) => {
       alert("Please enter a valid phone number.");
       return;
     }
+
+    if (!(formData.fullname && formData.message && phone)) {
+      handleAlertOpen();
+      return;
+    }
+
     // Create a query string from the form data
     // const queryString = new URLSearchParams(formData).toString();
     // console.log(queryString);
@@ -56,6 +62,7 @@ const Contact = ({ handleAlertClose, handleAlertOpen, handleOpen }) => {
     } catch (error) {
       console.error("Error:", error.message);
     }
+    formChecking();
     inputClear();
   };
 
@@ -127,9 +134,9 @@ const Contact = ({ handleAlertClose, handleAlertOpen, handleOpen }) => {
             </div>
             <div>
               <button
-                onClick={formChecking}
+                onClick={""}
                 className={`${styles.button} my-5 rounded-[20px] font-semibold w-fit shadow-md hover:bg-slate-400 transition px-10`}
-                type="sunmit"
+                type="submit"
               >
                 ارسل
               </button>

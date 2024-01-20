@@ -5,10 +5,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
-import axios from "axios";
-import * as React from "react";
-import Alert from "@mui/material/Alert";
-import Stack from "@mui/material/Stack";
+import { isValidPhoneNumber } from "libphonenumber-js";
 function Hero({ handleOpen, handleAlertClose, handleAlertOpen }) {
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -88,6 +85,17 @@ export function HeroForm({ handleOpen, handleAlertClose, handleAlertOpen }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
+
+    if (!isValidPhoneNumber(phone)) {
+      alert("Please enter a valid phone number.");
+      return;
+    }
+
+    if (!(formData.fullname && formData.message && phone)) {
+      handleAlertOpen();
+      return;
+    }
+
     console.log(phone);
     // Create a query string from the form data
     // const queryString = new URLSearchParams(formData).toString();
@@ -108,6 +116,7 @@ export function HeroForm({ handleOpen, handleAlertClose, handleAlertOpen }) {
     } catch (error) {
       console.error("Error:", error.message);
     }
+    formChecking();
     inputClear();
   };
 
@@ -130,6 +139,7 @@ export function HeroForm({ handleOpen, handleAlertClose, handleAlertOpen }) {
           الاسم الكامل
         </label>
         <input
+          required
           id="fullname"
           name="fullname"
           value={formData.fullname}
@@ -161,7 +171,7 @@ export function HeroForm({ handleOpen, handleAlertClose, handleAlertOpen }) {
           className="bg-primary h-[200px]"
         />
         <button
-          onClick={formChecking}
+          onClick={""}
           className={`${styles.button} mx-auto mt-2 rounded-[20px] font-semibold w-fit shadow-md hover:bg-slate-400 transition px-[40px]`}
         >
           ارسل
