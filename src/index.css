@@ -162,21 +162,27 @@ textarea:focus {
 }
 .react-international-phone-input-container {
   direction: ltr;
-  background-color: #4C4780;
+  background-color: #e2e8f0;
   padding: 5px;
   border-radius: 10px;
   margin-bottom: 0.75rem;
 
 }
-
+.contact .react-international-phone-input-container {
+  background-color: transparent;
+}
 .react-international-phone-input {
-  background-color: #4C4780 !important;
+  background-color: #e2e8f0 !important;
   width: 100%;
+  color: black !important;
   border: none !important;
-  color: #fff !important;
+  font-weight: 500 !important;
   font-size: 15px !important;
 }
-
+.contact .react-international-phone-input {
+  color: white !important;
+  background-color: transparent !important;
+}
 .react-international-phone-input-container .react-international-phone-country-selector-button {
   border: none;
 

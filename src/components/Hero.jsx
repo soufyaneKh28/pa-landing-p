@@ -15,7 +15,7 @@ function Hero({ handleOpen, handleAlertClose, handleAlertOpen }) {
     <>
       <section
         id=""
-        className={`hero-section flex flex-col-reverse md:flex-row  items-center  pt-6`}
+        className={`hero-section flex flex-col-reverse md:flex-row  items-center  pt-6 `}
       >
         <div className="flex-1  " data-aos="fade-up">
           <img
@@ -132,8 +132,9 @@ export function HeroForm({ handleOpen, handleAlertClose, handleAlertOpen }) {
     <div className=" flex justify-center">
       <form
         onSubmit={handleSubmit}
-        className="bg-white w-fit px-5 py-3 rounded-[10px] flex flex-col justify-center"
+        className="bg-white w-fit px-5 pb-3 rounded-[20px] flex flex-col justify-center"
       >
+        <div className="h-2 bg-[#ea435d] w-[100px] mb-3 mx-auto" />
         {/* <div className="text">lorem ipsom</div> */}
         <label htmlFor="fullname" className="text-black">
           الاسم الكامل
@@ -144,7 +145,7 @@ export function HeroForm({ handleOpen, handleAlertClose, handleAlertOpen }) {
           name="fullname"
           value={formData.fullname}
           onChange={handleChange}
-          className=" bg-primary mb-3"
+          className="   bg-slate-200 border-1 border-gray-300 mb-3 text-black"
           placeholder="اكتب اسمك"
         />
         <label htmlFor="phone" className="text-black">
@@ -156,7 +157,7 @@ export function HeroForm({ handleOpen, handleAlertClose, handleAlertOpen }) {
           value={phone}
           onChange={(phone) => setPhone(phone)}
         />
-        <label htmlFor="message" className="text-black">
+        <label htmlFor="message " className="text-black">
           {" "}
           اكتب رسالتك
         </label>
@@ -168,11 +169,11 @@ export function HeroForm({ handleOpen, handleAlertClose, handleAlertOpen }) {
           cols="30"
           rows="10"
           placeholder="اكتب رسالتك"
-          className="bg-primary h-[200px]"
+          className="bg-slate-200 border-1 border-gray-300 h-[200px] text-black"
         />
         <button
           onClick={""}
-          className={`${styles.button} mx-auto mt-2 rounded-[20px] font-semibold w-fit shadow-md hover:bg-slate-400 transition px-[40px]`}
+          className={`${styles.button} mx-auto mt-3 rounded-[20px] font-semibold  shadow-md hover:bg-slate-400 transition px-[40px] w-full`}
         >
           ارسل
         </button>

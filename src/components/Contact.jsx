@@ -75,7 +75,7 @@ const Contact = ({ handleAlertClose, handleAlertOpen, handleOpen }) => {
     }
   }
   return (
-    <section className=" gradient-contact" id="Contact-Us">
+    <section className=" gradient-contact contact" id="Contact-Us">
       <div className="container p-6 flex flex-col justify-center items-center ">
         <div className="flex  justify-center items-center ">
           <div className="flex-1">
