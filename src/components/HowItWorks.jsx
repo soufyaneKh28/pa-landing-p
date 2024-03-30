@@ -21,7 +21,7 @@ function HowItWorks() {
             </h2>
           </div>
 
-          <div className=" relative  max-w-[500px]  mx-4 mt-5">
+          <div className=" relative  max-w-[600px]  mx-4 mt-5">
             <div className="absolute bg-[#ea435d] w-[40px] h-[40px] z-[100] rounded-full flex justify-center items-center right-[-5px] top-[-10px] cursor-pointer border-[2px] border-white">
               <div className="triangle   "></div>
             </div>
@@ -30,12 +30,15 @@ function HowItWorks() {
               data-aos-delay="50"
               data-aos="fade-up"
             >
-              <video
-                src={video}
-                autoPlay={"autoplay"}
-                loop
-                controls={true}
-              ></video>
+              <iframe
+                className="w-[360px] h-[255px] md:w-[600px] md:h-[400px]"
+                src="https://www.youtube.com/embed/UTt6qMrUEN0?si=62FE4HiPv43OhK79&amp;start=28"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
 
